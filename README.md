@@ -1,2 +1,1 @@
-
-This project gives basic idea of django along with crud operations 
+This project gives idea of django crud operations using sqlite
