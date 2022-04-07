@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>::Admin Home::</title>
+</head>
+<body>
+    <h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewusers' %}">View Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'deleteuserbyid' %}">Delete users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'addcontent' %}">Add Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewcontent' %}">View Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'alogout' %}">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <br>
+    <h3 align="center"><u>View Content</u></h3>
+    <table align="center" border=2 width=1000>
+        <tr>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Link</th>
+        </tr>
+        {% for c in contents %}
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.category}}</td>
+                <td>{{c.title}}</td>
+                <td>{{c.description}}</td>
+                <td>{{c.link}}</td>
+            </tr>
+            {% empty %}
+            <h3 align=center>No Records Found</h3>
+        {% endfor %}
+    </table>
+    <br><br>
+    <h3 align="center">Total Number of Users = {{count}}</h3>
+
+</body>
+</html>

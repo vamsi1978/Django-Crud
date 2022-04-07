@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>::Admin Home::</title>
+</head>
+<body>
+    <h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewusers' %}">View Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'deleteuserbyid' %}">Delete users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'addcontent' %}">Add Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewcontent' %}">View Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'alogout' %}">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <br>
+    <h3 align=center><u>Delete User By Id</u></h3>
+    <form method="post" action="{% url 'deleteuserbyid1' %}">
+        {% csrf_token %}
+    <table align="center" height=100>
+        <tr>
+            <td>Serlect User Id</td>
+            <td>
+                <select name="uid" required>
+                    <option value="">---Seletct---</option>
+                    {% for user in users %}
+                        <option>{{user.id}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr align=center>
+            <td colspan="2">
+                <input type="submit" value="Delete">
+            </td>
+        </tr>
+         
+    </table>    
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>::Admin Login::</title>
+</head>
+<body>
+    <h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'index' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'adminlogin' %}">Admin</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'userreg' %}">User Registration</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'userlogin' %}">User Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'contactuspage' %}">Contact Us</a>
+    <br><br><br>
+    <h3 align=center><u>Admin Login</u></h3>
+    <form method="post" action="{% url 'checkadmin' %}">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td><b style="color:blue">Admin Id</b></td>
+                <td><input type="text" name="aid" required></td>
+            </tr>
+            <tr>
+                <td><b style="color:blue">Enter Admin Password</b></td>
+                <td><input type="password" name="apwd" required></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit" value="Login"></td>
+                <td align="center"><input type="reset" value="clear"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

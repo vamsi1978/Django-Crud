@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <title>::User Home::</title>
+</head>
+<body>
+    <h2 align=center>Welcome {{uname}}</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'userhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'changepwd' %}">Change Password</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'searchcontent' %}">Search Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'ulogout' %}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>::User Home::</title>
+</head>
+<body>
+    <h2 align=center>Welcome {{uname}}</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'userhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'changepwd' %}">Change Password</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'searchcontent' %}">Search Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'ulogout' %}">Logout</a>
+    <H3 align=center><u>Display Content</u></H3><br><br>
+    <center><font color="red">Total Search Results Found={{count}}</font></center>
+    <br>
+    {% for c in content %}
+        <mark>{{c.category}}</mark><br>
+        {{c.link}}<br>
+        <a href="{{c.link}}" target="_new">{{c.title}}</a><br>
+        {{c.description}}<br>
+        <hr color="blue">
+        {% empty %}
+        <h3 align=center>No Records Found</h3>
+    {% endfor %}
+   
+</body>
+</html>

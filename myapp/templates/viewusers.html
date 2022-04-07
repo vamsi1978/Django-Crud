@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>::Admin Home::</title>
+</head>
+<body>
+    <h2 align=center>Django Crud Operations</h2><hr color="red"><hr color="red"> 
+    <br><br>
+    <a href="{% url 'adminhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewusers' %}">View Users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'deleteuserbyid' %}">Delete users</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'addcontent' %}">Add Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'viewcontent' %}">View Content</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'alogout' %}">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <br>
+    <h3 align="center"><u>View Users</u></h3>
+    <table align="center" border=2 width=1000>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Mobile Number</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.fullname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.mobileno}}</td>
+                <td>{{user.location}}</td>
+                <td align="center"><a href="/deleteuser/{{user.id}}">Delete</a></td>
+            </tr>
+            {% empty %}
+            <h3 align=center>No Records Found</h3>
+        {% endfor %}
+    </table>
+    <br><br>
+    <h3 align="center">Total Number of Users = {{count}}</h3>
+
+</body>
+</html>
